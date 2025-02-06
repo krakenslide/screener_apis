@@ -2,13 +2,19 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import time
+from dotenv import load_dotenv
 from io import BytesIO
+import os
 
-# Define the URL and cookies
-url = "https://www.screener.in/watchlist/7439802/"
+load_dotenv()
+
+url = os.getenv("SCRAPER_URL")
+csrf_token = os.getenv("CSRF_TOKEN")
+session_id = os.getenv("SESSION_ID")
+
 cookies = {
-    "csrftoken": "wjF8KiM34JhNKVGPqWVXgCUmeRBoNs4h",
-    "sessionid": "33qnj1s20kgt57jlzh8k0wl05ue1ujx0",
+    "csrftoken": csrf_token,
+    "sessionid": session_id,
     "theme": "dark"
 }
 
